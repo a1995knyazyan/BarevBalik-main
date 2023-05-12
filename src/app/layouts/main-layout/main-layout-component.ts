@@ -35,7 +35,7 @@ export class MainLayoutComponent implements OnInit {
     handleHeaderEvents(event: string): void {
         switch (event) {
             case 'add' :
-                this.cardsService.addCard();
+                this.cardsService.generateRandomCard();
                 break
             case 'sort' :
                 this.cardsService.sortCards();

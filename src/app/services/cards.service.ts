@@ -17,22 +17,39 @@ export class CardsService {
         this._cards.next(data);
     }
 
-    addCard(): void {
-        this.cards = [...this.cards, this.generateRandomCard()]
-    }
-
     removeCard(cardId: number): void {
-
+        const cardsCopyList = [...this.cards];
+        for(let i = 0; i < cardsCopyList.length; i++) {
+            if (cardsCopyList[i].id === cardId) {
+                cardsCopyList.splice(i, 1);
+                this.cards = [...cardsCopyList];
+            }
+        }
     }
 
     sortCards(): void {
-
+        const cardsCopyList = this.cards.slice(0);
+        this.cards = cardsCopyList.sort(function(a,b) {
+            return a.count - b.count;
+        });
     }
 
-    generateRandomCard(): CardI {
-        return {
-            count: Math.random(),
-            id: Math.random()
-        } as CardI;
+    getCardItem(id: number): CardI | undefined {
+        return this.cards.find((item) => {
+            return item.id === id;
+        });
+    }
+
+    generateRandomCard(): void {
+        const randomInteger: number = Math.floor(Math.random() * 100);
+        // check if integer already exists
+        if (this.getCardItem(randomInteger)) {
+            this.generateRandomCard();
+        } else {
+            this.cards = [...this.cards, {
+                count: randomInteger,
+                id: randomInteger
+            } as CardI]
+        }
     }
 }
