@@ -1,0 +1,17 @@
+.card-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 25px;
+  font-weight: bold;
+  width: 400px;
+  height: 300px;
+  border: 1px solid #000000;
+
+  .remove-icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+}

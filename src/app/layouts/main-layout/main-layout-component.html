@@ -1,0 +1,16 @@
+<div class="main-layout-container">
+    <div class="main-content">
+        <div class="header-container">
+            <app-header [actions]="headerButtons" (eventOccurs)="handleHeaderEvents($event)"></app-header>
+        </div>
+        <div class="main-inner-content">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="footer-container">
+            <app-footer></app-footer>
+        </div>
+    </div>
+    <div class="sidebar-container">
+        <app-sidebar></app-sidebar>
+    </div>
+</div>

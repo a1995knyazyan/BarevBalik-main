@@ -1,0 +1,5 @@
+<div class="header-content">
+    <ng-container *ngFor="let action of actions">
+        <button (click)="handleActionEvent(action.key)">{{action.content}}</button>
+    </ng-container>
+</div>
